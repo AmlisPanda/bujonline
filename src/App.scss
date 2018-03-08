@@ -1,0 +1,205 @@
+$font-stack: 'Voltaire','Verdana', 'Trebuchet MS', 'Arial';
+$main-color: #61dafb;
+$dark-color: #3F4448;
+$red: red;
+
+body {
+	background-color: #F4F7F6;
+	font-family: $font-stack;
+}
+
+.red {
+	color: $red;
+}
+
+.App-logo {
+  float: left;
+  margin-right: 10px;
+}
+
+.App-header {
+	background-color: #fff;
+    /* height: 30px; */
+    padding: 20px 10px 15px;
+    color: black;
+    /* position: absolute; */
+    width: 100%;
+    /* top: 0; */
+    -webkit-box-sizing: border-box;
+    /* box-sizing: border-box; */
+    overflow: hidden;
+	margin-bottom: 20px;
+	.svg-inline--fa {
+		color: $main-color;
+	}
+}
+
+.App-title {
+  font-size: 1.5em;
+  line-height: 1.5em;
+  margin: 0;
+  float: left;
+
+}
+
+#nav {
+	width: 40%;
+	height: 30px;
+	font-size: 1.2em;
+	padding: 10px;
+	margin: auto;
+	color: black;
+	display: flex;
+	text-transform: uppercase;
+
+	a {
+		flex: 1;
+		text-decoration: none;
+		color: #000;
+
+
+
+
+	}
+
+	a.active {
+		color: $main-color;
+	}
+
+	a:hover {
+		color: $main-color;
+	}
+}
+
+#userBlock {
+	float: right;
+	font-size: 1em;
+	line-height: 1.2em;
+
+	.svg-inline--fa {
+		float: left;
+		overflow: hidden;
+		margin-right: 10px;
+	}
+
+	#content {
+		overflow: hidden;
+		text-align: right;
+		line-height: 30px;
+	}
+	> div span {
+		color: $main-color;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+}
+
+#logoutBtn {
+	text-decoration: none;
+	color: red;
+	display: block;
+	:hover {
+		text-decoration: underline;
+	}
+}
+#main {
+	width: 80%;
+	margin: auto;
+}
+.widget {
+	background-color: #fff;
+	padding: 10px 15px 10px 30px;
+	margin-right: 15px;
+	float: left;
+	position: relative;
+
+	.grip {
+		width: 22px;
+		padding: 10px 0px;
+		height: 100%;
+		background-color: $main-color;
+		position: absolute;
+		top: 0;
+		left: 0;
+		box-sizing: border-box;
+		text-align: center;
+		cursor: move;
+
+		.svg-inline--fa {
+			color: white;
+			cursor: pointer;
+			margin-bottom: 8px;
+		}
+		.svg-inline--fa:hover {
+			color: $dark-color;
+		}
+
+	}
+	header {
+		margin-bottom: 10px;
+		position: relative;
+	}
+
+	h2 {
+		font-size: 1.2em;
+		margin: 0;
+		text-align: left;
+		color: $main-color;
+	}
+
+	.widgetFav {
+		position: absolute;
+		top: 0;
+		right: 0;
+		color: red;
+	}
+
+	p.description {
+		margin: 0;
+		font-size: 1em;
+		font-style: italic;
+	}
+	.widgetContent {
+		font-size: 1em;
+	}
+}
+
+.imageWidget img {
+	width: 99%;
+}
+
+#toolsNav {
+	width: 8%;
+	position: absolute; right: 0;
+	text-align: center;
+	font-size: 1.2em;
+
+	padding-right: 20px;
+
+	a {
+		display: block;
+		color: $dark-color;
+		text-decoration: none;
+		margin-bottom: 30px;
+
+		span {
+			display: block;
+		}
+	}
+	a:hover {
+		color: $main-color;
+	}
+}
+
+footer {
+	background-color: $dark-color;
+	color: white;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 25px;
+	text-align: center;
+	font-size: 0.8em;
+	line-height: 25px;
+
+}

@@ -11,11 +11,15 @@ export class Widget extends Component {
 			height: this.props.h || 400
 		}
 	}
-	
+
 	render() {
 		return (
 			<div className={this.state.cn} style={{width: this.state.width, height: this.state.height}}>
-				<div className="grap"></div>
+				<div className="grip">
+					<i className="fas fa-expand-arrows-alt" title="Agrandir"></i>
+					<i className="fas fa-cog" title="Configurer"></i>
+					<i className="fas fa-trash" title="Supprimer"></i>
+				</div>
 				<header>
 					<h2>{this.state.title}</h2>
 					<p className="description">{this.state.description}</p>
@@ -34,22 +38,19 @@ export class TextWidget extends Component {
 			<Widget title={this.props.title} description={this.props.description} cn={TextWidget.cn} w="600" h="200">
 				<p dangerouslySetInnerHTML={{__html: this.props.html}}></p>
 			</Widget>
-			
+
 		);
 	}
 }
 
 export class ImageWidget extends Component {
 	static cn = "imageWidget";
-	constructor(props) {
-		super(props);
-	}
 	render() {
 		return (
 			<Widget title={this.props.title} description={this.props.description} cn={ImageWidget.cn}>
 				<img src={this.props.imageUrl} alt={this.props.title} title={this.props.title}  />
 			</Widget>
-			
+
 		);
 	}
 }
