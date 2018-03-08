@@ -15,7 +15,11 @@ export class Widget extends Component {
 	render() {
 		return (
 			<div className={this.state.cn} style={{width: this.state.width, height: this.state.height}}>
-				<div className="grap"></div>
+				<div className="grip">
+					<i className="fas fa-expand-arrows-alt" title="Agrandir"></i>
+					<i className="fas fa-cog" title="Configurer"></i>
+					<i className="fas fa-trash" title="Supprimer"></i>
+				</div>
 				<header>
 					<h2>{this.state.title}</h2>
 					<p className="description">{this.state.description}</p>
