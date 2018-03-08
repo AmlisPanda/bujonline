@@ -9,7 +9,7 @@ body {
 
 .App-logo {
   float: left;
-  margin-right: 10px;
+  margin-right: 12px;
 }
 
 .App-header {
@@ -89,7 +89,7 @@ nav a.active {
 	text-decoration: none;
 	color: red;
 	display: block;
-	
+
 }
 #logoutBtn:hover {
 	text-decoration: underline;
@@ -124,7 +124,7 @@ nav a.active {
 	text-align: left;
 }
 .widget .widgetFav {
-	position: absolute; 
+	position: absolute;
 	top: 0;
 	right: 0;
 	color: red;
