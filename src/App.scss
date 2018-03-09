@@ -56,6 +56,10 @@ body {
 		flex: 1;
 		text-decoration: none;
 		color: #000;
+
+
+
+
 	}
 
 	a.active {
@@ -143,7 +147,7 @@ body {
 		color: $main-color;
 	}
 
-	.widgetFav {
+	.widgetFav.svg-inline--fa {
 		position: absolute;
 		top: 0;
 		right: 0;
