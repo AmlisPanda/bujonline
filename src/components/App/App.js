@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-import { TextWidget, ImageWidget} from './Components/Widgets.js';
+import './App.scss';
+import { TextWidget, ImageWidget } from '../Widgets/Widgets.js';
 
 class App extends Component {
     constructor(props) {
