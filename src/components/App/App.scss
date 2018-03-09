@@ -76,6 +76,8 @@ body {
 	button {
 		color: $main-color;
 		border: none;
+		background-color: #fff;
+		cursor: pointer;
 	}
 	button:hover {
 		text-decoration: underline;
