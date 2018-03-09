@@ -1,11 +1,9 @@
-$font-stack: 'Voltaire','Verdana', 'Trebuchet MS', 'Arial';
-$main-color: #61dafb;
-$dark-color: #3F4448;
-$red: red;
+@import '../variables.scss';
 
 body {
 	background-color: #F4F7F6;
 	font-family: $font-stack;
+	margin: 0;
 }
 
 .red {
@@ -109,9 +107,18 @@ body {
 		text-decoration: underline;
 	}
 }
+
+
 #main {
 	width: 80%;
 	margin: auto;
+
+	form {
+		background-color: white;
+		padding: 10px 20px;
+		float: left;
+		margin-right: 20px;
+	}
 }
 .widget {
 	background-color: #fff;
@@ -154,11 +161,14 @@ body {
 		color: $main-color;
 	}
 
-	.widgetFav i {
-		position: absolute;
-		top: 0;
-		right: 0;
-		color: red;
+	.widgetFav {
+		cursor: pointer;
+		i {
+			position: absolute;
+			top: 0;
+			right: 0;
+			color: red;
+		}
 	}
 
 	p.description {
@@ -180,7 +190,6 @@ body {
 	position: absolute; right: 0;
 	text-align: center;
 	font-size: 1.2em;
-
 	padding-right: 20px;
 
 	a {
@@ -188,6 +197,7 @@ body {
 		color: $dark-color;
 		text-decoration: none;
 		margin-bottom: 30px;
+		cursor: pointer;
 
 		span {
 			display: block;

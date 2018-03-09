@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Widgets.scss';
 
 export class Widget extends Component {
 	constructor(props) {
@@ -33,8 +32,13 @@ export class Widget extends Component {
 			<div className={this.state.cn} style={{width: this.state.width, height: this.state.height}}>
 				<div className="grip">
 					<i className="fas fa-expand-arrows-alt" title="Agrandir"></i>
-					<i className="fas fa-cog" title="Configurer"></i>
-					<i className="fas fa-trash" title="Supprimer"></i>
+					{ this.props.isLoggedIn &&
+						<div className="widgetAdminIcons">
+							<i className="fas fa-cog" title="Configurer"></i>
+							<i className="fas fa-trash" title="Supprimer"></i>
+						</div>
+					}
+
 				</div>
 				<header>
 					<h2 onClick={this.handleFavClick}>{this.state.title}</h2>
@@ -50,29 +54,5 @@ export class Widget extends Component {
 				<div className="widgetContent">{this.props.children}</div>
 			</div>
 		)
-	}
-}
-
-export class TextWidget extends Component {
-	static cn = "textWidget";
-	render() {
-		return (
-			<Widget title={this.props.title} description={this.props.description} cn={TextWidget.cn} w="600" h="200">
-				<p dangerouslySetInnerHTML={{__html: this.props.html}}></p>
-			</Widget>
-
-		);
-	}
-}
-
-export class ImageWidget extends Component {
-	static cn = "imageWidget";
-	render() {
-		return (
-			<Widget title={this.props.title} description={this.props.description} cn={ImageWidget.cn}>
-				<img src={this.props.imageUrl} alt={this.props.title} title={this.props.title}  />
-			</Widget>
-
-		);
 	}
 }
