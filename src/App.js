@@ -3,14 +3,38 @@ import './App.css';
 import { TextWidget, ImageWidget} from './Components/Widgets.js';
 
 class App extends Component {
+    constructor(props) {
+       super(props);
+       this.state = {
+         isUserConnected: false
+       }
 
-  render() {
-    return (
+       this.handlerLogin = this.handlerLogin.bind(this);
+       this.handlerLogout = this.handlerLogout.bind(this);
+    }
+
+    handlerLogin() {
+        this.setState({ isUserConnected: true })
+    }
+
+    handlerLogout() {
+        this.setState({ isUserConnected: false })
+    }
+
+    render() {
+
+      const isLoggedIn = this.state.isUserConnected;
+
+      return (
       <div className="App">
         <header className="App-header">
           <i className="fas fa-sun fa-2x App-logo fa-spin"></i>
           <h1 className="App-title">BujOnline</h1>
-		  <User />
+          {isLoggedIn ?
+              (<User handlerLogout={this.handlerLogout} />)
+              :
+              (<UserConnection handlerLogin={this.handlerLogin} />)
+          }
 		  <Menu selectedItem="0" />
         </header>
 
@@ -28,7 +52,9 @@ class App extends Component {
 			/>
         </div>
 
-        <Nav />
+        {isLoggedIn &&
+            <Nav handlerLogout={this.handlerLogout} />
+        }
 
         <Footer />
       </div>
@@ -36,23 +62,36 @@ class App extends Component {
   }
 }
 
+class UserConnection extends Component {
+    render() {
+
+        return (
+            <div id="userBlock">
+                <button>S''inscrire</button>
+                <button onClick={this.props.handlerLogin}>Se connecter</button>
+            </div>
+        );
+    }
+}
 class User extends Component {
 
   constructor(props) {
-	super(props);
-	this.state = {
-	  login: "Amlis"
-	}
+  	super(props);
+  	this.state = {
+  	  login: "Amlis"
+  	}
   }
 
 	render() {
+
 		return (
-			<div id="userBlock">
+            <div id="userBlock">
 				<i className="far fa-2x fa-address-card"></i>
 				<div id="content">
-					Bienvenue <span>{this.state.login}</span>
-				</div>
-			</div>
+                    Bienvenue <span>{this.state.login}</span>
+                    <button onClick={this.props.handlerLogout}>Se déconnecter</button>
+                </div>
+            </div>
 		);
 	}
 }
@@ -98,11 +137,11 @@ class Nav extends Component {
     render() {
         return (
             <nav id="toolsNav">
-                <a href="#"><i class="fas fa-plus fa-4x"></i><span>Nouveau widget</span></a>
-                <a href="#"><i class="fas fa-user-circle fa-4x"></i><span>Mon profil</span></a>
-                <a href="#"><i class="far fa-star fa-4x"></i><span>Préférences</span></a>
-                <a href="#"><i class="fas fa-share-alt fa-4x"></i><span>Partager</span></a>
-                <a href="#" class="red"><i class="fas fa-sign-out-alt fa-4x"></i><span>Se déconnecter</span></a>
+                <a href="#"><i className="fas fa-plus fa-4x"></i><span>Nouveau widget</span></a>
+                <a href="#"><i className="fas fa-user-circle fa-4x"></i><span>Mon profil</span></a>
+                <a href="#"><i className="far fa-star fa-4x"></i><span>Préférences</span></a>
+                <a href="#"><i className="fas fa-share-alt fa-4x"></i><span>Partager</span></a>
+                <a onClick={this.props.handlerLogout} className="red"><i className="fas fa-sign-out-alt fa-4x"></i><span>Se déconnecter</span></a>
             </nav>
         );
     }
@@ -112,7 +151,7 @@ class NavItem extends Component {
     render() {
         return (
             <nav id="toolsNav">
-                <a href="#"><i class="fas fa-plus fa-5x"></i><span>Nouveau widget</span></a>
+                <a href="#"><i className="fas fa-plus fa-5x"></i><span>Nouveau widget</span></a>
             </nav>
         );
     }

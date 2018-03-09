@@ -16,20 +16,19 @@ export class Widget extends Component {
 	}
 
 	handleFavClick() {
-		this.setState(prevState => ({
-			isFavourite: !prevState.isFavourite
-		}))
+		const isFav = this.state.isFavourite;
+		this.setState({
+			isFavourite: !isFav
+		});
 	}
 
 	handleFavMouseOver() {
-		
+
 	}
 
 	render() {
 		const isFav = this.state.isFavourite;
 		return (
-
-
 			<div className={this.state.cn} style={{width: this.state.width, height: this.state.height}}>
 				<div className="grip">
 					<i className="fas fa-expand-arrows-alt" title="Agrandir"></i>
@@ -37,9 +36,15 @@ export class Widget extends Component {
 					<i className="fas fa-trash" title="Supprimer"></i>
 				</div>
 				<header>
-					<h2>{this.state.title}</h2>
+					<h2 onClick={this.handleFavClick}>{this.state.title}</h2>
 					<p className="description">{this.state.description}</p>
-					<i className={"widgetFav fa-heart fa-lg " + ((isFav) ? "fas" : "far")} onClick={this.handleFavClick()} onMouseOver={this.handleFavMouseOver()}></i>
+
+					<div className="widgetFav" onClick={this.handleFavClick} onMouseOver={this.handleFavMouseOver}>
+						{isFav ?
+							(<i className="fa-heart fa-lg fas"></i>) : (<i className="fa-heart fa-lg far"></i>)
+						}
+					</div>
+
 				</header>
 				<div className="widgetContent">{this.props.children}</div>
 			</div>

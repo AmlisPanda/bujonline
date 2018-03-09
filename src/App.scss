@@ -29,7 +29,7 @@ body {
     /* box-sizing: border-box; */
     overflow: hidden;
 	margin-bottom: 20px;
-	.svg-inline--fa {
+	i {
 		color: $main-color;
 	}
 }
@@ -56,10 +56,6 @@ body {
 		flex: 1;
 		text-decoration: none;
 		color: #000;
-
-
-
-
 	}
 
 	a.active {
@@ -71,12 +67,21 @@ body {
 	}
 }
 
+
 #userBlock {
 	float: right;
 	font-size: 1em;
 	line-height: 1.2em;
 
-	.svg-inline--fa {
+	button {
+		color: $main-color;
+		border: none;
+	}
+	button:hover {
+		text-decoration: underline;
+	}
+
+	i {
 		float: left;
 		overflow: hidden;
 		margin-right: 10px;
@@ -125,12 +130,12 @@ body {
 		text-align: center;
 		cursor: move;
 
-		.svg-inline--fa {
+		i {
 			color: white;
 			cursor: pointer;
 			margin-bottom: 8px;
 		}
-		.svg-inline--fa:hover {
+		i:hover {
 			color: $dark-color;
 		}
 
@@ -147,7 +152,7 @@ body {
 		color: $main-color;
 	}
 
-	.widgetFav.svg-inline--fa {
+	.widgetFav i {
 		position: absolute;
 		top: 0;
 		right: 0;
