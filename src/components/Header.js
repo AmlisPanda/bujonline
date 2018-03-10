@@ -9,10 +9,8 @@ export class Header extends Component {
             <header className="App-header">
               <i className="fas fa-sun fa-2x App-logo fa-spin"></i>
               <h1 className="App-title">BujOnline</h1>
-              {this.props.isLoggedIn ?
+              {this.props.isLoggedIn &&
                   (<User handlerLogout={this.props.handlerLogout} />)
-                  :
-                  (<UserConnection handlerLogin={this.props.handlerLogin} />)
               }
 
               {this.props.isLoggedIn &&

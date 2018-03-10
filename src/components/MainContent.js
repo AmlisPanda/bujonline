@@ -18,7 +18,7 @@ export class MainContent extends Component {
             content = (
                 <div id="homepageContent">
                     <SubscribeForm />
-                    <LoginForm />
+                    <LoginForm handlerLogin={this.props.handlerLogin} />
                 </div>
             );
         }

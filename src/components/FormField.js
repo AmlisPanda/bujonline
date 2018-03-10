@@ -9,6 +9,14 @@ export class FormField extends Component {
             input = <input type="text" />
         else if (this.props.type === "password")
             input = <input type="password" />
+        else if (this.props.type === "select") {
+            input = (
+                <select>
+                    {this.props.children}
+                </select>
+
+            );
+        }
 
         return (
             <div className="field">

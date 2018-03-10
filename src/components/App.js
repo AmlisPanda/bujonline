@@ -28,7 +28,10 @@ class App extends Component {
         this.setState({ isUserConnected: false })
     }
 
-    handlerTogglePopup() {
+    handlerTogglePopup(e) {
+
+        e.stopPropagation();
+
         this.setState((prevState) => {
             return {popupActive: !prevState.popupActive}
         });
@@ -41,19 +44,18 @@ class App extends Component {
       return (
       <div className="App">
 
-        <Header isLoggedIn={isLoggedIn} handlerLogin={this.handlerLogin} handlerLogout={this.handlerLogout} />
+        <Header isLoggedIn={isLoggedIn} handlerLogout={this.handlerLogout} />
 
-        <MainContent isLoggedIn={isLoggedIn} />
+        <div id="container">
+            <MainContent isLoggedIn={isLoggedIn} handlerLogin={this.handlerLogin} />
 
+            <Popup active={this.state.popupActive} handlerTogglePopup={this.handlerTogglePopup} />
 
-
-        {isLoggedIn &&
-            <div id="navWrapper">
-                <Popup active={this.state.popupActive} />
+            {isLoggedIn &&
                 <Nav handlerLogout={this.handlerLogout} handlerTogglePopup={this.handlerTogglePopup} />
-            </div>
+            }
+        </div>
 
-        }
 
         <Footer />
       </div>
