@@ -16,7 +16,7 @@ export class MainContent extends Component {
         }
         else {
             content = (
-                <div>
+                <div id="homepageContent">
                     <SubscribeForm />
                     <LoginForm />
                 </div>

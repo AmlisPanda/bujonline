@@ -29,7 +29,7 @@ export class Widget extends Component {
 	render() {
 		const isFav = this.state.isFavourite;
 		return (
-			<div className={this.state.cn} style={{width: this.state.width, height: this.state.height}}>
+			<div className={this.state.cn} >
 				<div className="grip">
 					<i className="fas fa-expand-arrows-alt" title="Agrandir"></i>
 					{ this.props.isLoggedIn &&

@@ -1,13 +1,26 @@
 @import '../variables.scss';
 
+* {
+	box-sizing: border-box;
+}
+
 body {
 	background-color: #F4F7F6;
 	font-family: $font-stack;
 	margin: 0;
+	background: url('../images/bg.jpg') no-repeat top left;
+	background-size: cover;
+	padding-bottom: 40px;
 }
 
 .red {
 	color: $red;
+}
+
+button {
+	cursor: pointer;
+	border: none;
+	background-color: white;
 }
 
 .App-logo {
@@ -40,7 +53,10 @@ body {
 
 }
 
+
+
 #nav {
+	position: relative;
 	width: 40%;
 	height: 30px;
 	font-size: 1.2em;
@@ -54,6 +70,7 @@ body {
 		flex: 1;
 		text-decoration: none;
 		color: #000;
+		cursor: pointer;
 	}
 
 	a.active {
@@ -109,21 +126,96 @@ body {
 }
 
 
+
 #main {
 	width: 80%;
 	margin: auto;
+}
 
-	form {
-		background-color: white;
-		padding: 10px 20px;
-		float: left;
-		margin-right: 20px;
+
+form {
+	background-color: white;
+	padding: 25px 0 40px;
+	text-align: center;
+	opacity: 0.8;
+	font-size: 1.2em;
+
+
+	h2 {
+		margin: 0;
+		margin-bottom: 20px;
+	}
+
+
+	label {
+		display: block;
+		width: 80%;
+		text-align: left;
+		margin: auto;
+		margin-bottom: 30px;
+		color: $dark-color;
+	}
+
+	input {
+		width: 100%;
+		height: 25px;
+		border: 0;
+		border-bottom: 1px solid black;
+		font-size: 1.3em;
+		padding-bottom: 3px;
+	}
+	input:focus, input:active {
+		outline: none;
+		border: none;
+		border-bottom: 1px solid $main-color;
+	}
+
+	.buttonForm {
+		background-color: $dark-color;
+		color: #fff;
+		padding: 10px 40px;
+		font-size: 1.2em;
+		border-radius: 10px;
+	}
+	.buttonForm:hover {
+		background-color: $main-color;
 	}
 }
+
+#homepageContent {
+	display: flex;
+	width: 65%;
+	margin: auto;
+	margin-top: 50px;
+
+	form {
+		border-top: 5px solid $main-color;
+	}
+
+	#subscribeForm {
+		flex-grow: 2;
+		margin-right: 3px;
+	}
+
+
+	#lnkForgotPassword {
+		color: $main-color;
+		font-size: 1em;
+		display: block;
+		margin-bottom: 15px;
+		cursor: pointer;
+	}
+	#lnkForgotPassword:hover {
+		text-decoration: underline;
+	}
+}
+
+
 .widget {
 	background-color: #fff;
+	opacity: 0.9em;
 	padding: 10px 15px 10px 30px;
-	margin-right: 15px;
+	margin: 0 15px 15px 0;
 	float: left;
 	position: relative;
 
@@ -157,15 +249,17 @@ body {
 	h2 {
 		font-size: 1.2em;
 		margin: 0;
+		width: 90%;
 		text-align: left;
 		color: $main-color;
+		font-weight: normal;
 	}
 
 	.widgetFav {
 		cursor: pointer;
 		i {
 			position: absolute;
-			top: 0;
+			top: 3px;
 			right: 0;
 			color: red;
 		}
@@ -182,19 +276,96 @@ body {
 }
 
 .imageWidget img {
-	width: 99%;
+	max-width: 400px;
+}
+
+.listWidget {
+
+	form {
+		text-align: left;
+
+		.listTyping {
+			display: flex;
+
+			input {
+				flex-grow: 4;
+				width: auto;
+			}
+
+			button:hover {
+				color: $main-color;
+			}
+		}
+	}
+
+	ul {
+		margin-left: 5px;
+		padding-left: 20px;
+		font-size: 1.2em;
+		li {
+			line-height: 30px;
+			cursor: pointer;
+
+			i.bullet {
+				float: left;
+			}
+
+			i.iconDelete {
+				display: none;
+				line-height: 25px;
+				float: right;
+			}
+
+			i:hover {
+				color: $main-color;
+
+			}
+		}
+		li:hover {
+			text-decoration: line-through;
+			i {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+#navWrapper {
+	width: 200px;
+	height: 90%;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+#popupContainer {
+	display: none;
+	position: absolute;
+}
+
+#popupContainer.active {
+	display: block;
+	z-index: 5;
+	min-width: 400px;
+	right: 180px;
+	background-color: #fff;
+	opacity: 0.9;
+	margin-left: 10px;
+	margin-bottom: 50px;
 }
 
 #toolsNav {
-	width: 8%;
-	position: absolute; right: 0;
+	position: absolute;
+	right: 0;
 	text-align: center;
 	font-size: 1.2em;
 	padding-right: 20px;
+	display: flex;
+	flex-direction: column;
 
 	a {
-		display: block;
-		color: $dark-color;
+		flex-grow: 1;
+		color: white;
 		text-decoration: none;
 		margin-bottom: 30px;
 		cursor: pointer;

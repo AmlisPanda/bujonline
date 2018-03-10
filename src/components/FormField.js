@@ -11,7 +11,7 @@ export class FormField extends Component {
             input = <input type="password" />
 
         return (
-            <div class="field">
+            <div className="field">
                 <label>
                     {this.props.label}
                     {input}

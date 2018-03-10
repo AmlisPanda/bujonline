@@ -4,11 +4,12 @@ import { FormField } from './FormField.js'
 export class LoginForm extends Component {
     render() {
         return (
-            <form>
-                <h2>Connexion</h2>
+            <form id="loginForm">
+                <h2>Déjà inscrit ? Connecte-toi !</h2>
                 <FormField label="Adresse mail"  type="text" />
                 <FormField label="Mot de passe"  type="password" />
-                <button>Se connecter</button>
+                <a id="lnkForgotPassword">Mot de passe oublié</a>
+                <button className="buttonForm">Se connecter</button>
             </form>
 
         );
