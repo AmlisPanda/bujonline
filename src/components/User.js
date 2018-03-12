@@ -13,11 +13,7 @@ export class User extends Component {
 
 		return (
             <div id="userBlock">
-				<i className="far fa-2x fa-address-card"></i>
-				<div id="content">
-                    Bienvenue <span>{this.state.login}</span>
-                    <button onClick={this.props.handlerLogout}>Se déconnecter</button>
-                </div>
+                Bienvenue <span>{this.state.login}</span>
             </div>
 		);
 	}

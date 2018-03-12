@@ -3,6 +3,20 @@ import { FormField } from './FormField.js'
 import { WidgetContentForm } from './WidgetContentForm.js'
 
 export class CreateWidgetForm extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            widgetType: 0
+        }
+        this.typeChange = this.typeChange.bind(this);
+    }
+
+
+    typeChange(e) {
+        this.setState({ widgetType: e.target.value })
+    }
+
     render() {
         return(
             <div>
@@ -10,26 +24,21 @@ export class CreateWidgetForm extends Component {
                 <FormField label="Titre" type="text" />
                 <FormField label="Description" type="text" />
                 <section>
-                    <FormField label="Type de widget" type="select">
+                    <FormField label="Type de widget" type="select" value={this.state.widgetType} changeHandler={this.typeChange}>
                         <option value="0">Texte</option>
-                        <option value="1" disabled>Image</option>
-                        <option value="2" disabled>Liste</option>
+                        <option value="1">Image</option>
+                        <option value="2">Liste</option>
+                        <option value="3">Mood tracker</option>
                     </FormField>
-                    <FormField label="Mode d'affichage" type="select">
-                        <option value="0">Permanent</option>
-                        <option value="1">En mode jour</option>
-                        <option value="2">En mode semaine</option>
-                        <option value="3">En mode mois</option>
-                        <option value="4">En mode année</option>
-                    </FormField>
+                    <FormField label="Date" type="datepicker"></FormField>
                     <FormField label="Confidentialité" type="select">
                         <option value="0">Seulement moi</option>
                         <option value="1">Public</option>
                     </FormField>
                 </section>
 
-                <WidgetContentForm />
-                
+                <WidgetContentForm contentType={this.state.widgetType}/>
+
                 <button className="buttonForm">Créer</button>
             </div>
         )

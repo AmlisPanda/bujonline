@@ -23,6 +23,13 @@ export class WidgetsList extends Component {
                     title="Ma liste de courses"
                     description=""
                     isLoggedIn={this.props.isLoggedIn}
+                    listType="1"
+                />
+                <ListWidget
+                    title="Films vus"
+                    description="Dans le mois"
+                    isLoggedIn={this.props.isLoggedIn}
+                    listType="2"
                 />
             </div>
 

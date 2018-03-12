@@ -24,14 +24,18 @@ button {
 }
 
 .App-logo {
-  float: left;
-  margin-right: 10px;
+	float: left;
+  	margin-right: 10px;
+}
+
+#logoTitle {
+	float: left;
 }
 
 .App-header {
 	background-color: #fff;
-    /* height: 30px; */
-    padding: 20px 10px 15px;
+    height: 85px;
+    padding: 10px;
     color: black;
     /* position: absolute; */
     width: 100%;
@@ -46,10 +50,7 @@ button {
 
 .App-title {
   font-size: 1.5em;
-  line-height: 1.5em;
-  margin: 0;
   float: left;
-
 }
 
 
@@ -59,6 +60,7 @@ button {
 	width: 40%;
 	height: 30px;
 	font-size: 1.2em;
+	line-height: 40px;
 	padding: 10px;
 	margin: auto;
 	color: black;
@@ -84,8 +86,8 @@ button {
 
 #userBlock {
 	float: right;
-	font-size: 1em;
-	line-height: 1.2em;
+	font-size: 1.2em;
+	line-height: 65px;
 
 	button {
 		color: $main-color;
@@ -97,18 +99,7 @@ button {
 		text-decoration: underline;
 	}
 
-	i {
-		float: left;
-		overflow: hidden;
-		margin-right: 10px;
-	}
-
-	#content {
-		overflow: hidden;
-		text-align: right;
-		line-height: 30px;
-	}
-	> div span {
+	span {
 		color: $main-color;
 		font-weight: bold;
 		text-transform: uppercase;
@@ -163,7 +154,7 @@ form {
 		color: $dark-color;
 	}
 
-	input {
+	input[type='text'], input[type='password'] {
 		width: 100%;
 		border: 0;
 		border-bottom: 1px solid black;
@@ -176,9 +167,13 @@ form {
 		border-bottom: 1px solid $main-color;
 	}
 
-	select {
+	select, .react-date-picker {
 		margin-left: 10px;
 		font-size: 1em;
+	}
+
+	.react-calendar {
+		font-size: 0.7em;
 	}
 	.buttonForm {
 		background-color: $dark-color;
@@ -335,12 +330,20 @@ form {
 			}
 		}
 		li:hover {
-			text-decoration: line-through;
 			i {
 				display: inline-block;
 			}
+
+
 		}
+
+		li.strikethroughItem:hover {
+			text-decoration: line-through;
+		}
+
 	}
+
+
 }
 
 #popupContainer {
@@ -428,5 +431,8 @@ footer {
 	text-align: center;
 	font-size: 0.8em;
 	line-height: 25px;
-
+	a {
+		color: white;
+		text-decoration: none;
+	}
 }
