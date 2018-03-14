@@ -216,7 +216,11 @@ form {
 	}
 }
 
-
+#widgetsList {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
+}
 .widget {
 	background-color: #fff;
 	padding: 7px 15px 7px 30px;
@@ -338,12 +342,26 @@ form {
 		}
 
 		li.strikethroughItem:hover {
-			text-decoration: line-through;
+			color: $main-color;
+		}
+
+		li {
+			div.strikethrough {
+				text-decoration: line-through;
+			}
 		}
 
 	}
 
 
+}
+
+.timerWidget {
+	.timerText {
+		text-align: center;
+		font-size: 3em;
+		font-weight: bold;
+	}
 }
 
 #popupContainer {

@@ -6,12 +6,25 @@ export class ListWidget extends Component {
     constructor(props) {
        super(props);
 
-       this.state = {
-           items: [
+       let listItems = [];
+
+       if (this.props.listType == "1") {
+           listItems = [
                { order: 0, label: "Pain" },
                { order: 1, label: "Jambon" },
-               { order: 2, label: "Tomates" },
-            ],
+               { order: 2, label: "Tomates" }
+           ]
+       }
+       else if (this.props.listType == "2") {
+           listItems = [
+               { order: 0, label: "Downsizing" },
+               { order: 1, label: "Black Panther" },
+               { order: 2, label: "Maze runner" }
+           ]
+       }
+
+       this.state = {
+           items: listItems,
            text: ""
        }
 
@@ -43,24 +56,6 @@ export class ListWidget extends Component {
     static cn = "listWidget";
     render() {
 
-        let listItems = [];
-
-        if (this.props.listType == "1") {
-            listItems = [
-                { order: 0, label: "Pain" },
-                { order: 1, label: "Jambon" },
-                { order: 2, label: "Tomates" }
-            ]
-        }
-        else if (this.props.listType == "2") {
-            listItems = [
-                { order: 0, label: "Minisizer" },
-                { order: 1, label: "Black Panther" },
-                { order: 2, label: "Maze runner" }
-            ]
-        }
-
-        this.state.items = listItems;
         return (
             <Widget title={this.props.title} description={this.props.description} cn={ListWidget.cn} isLoggedIn={this.props.isLoggedIn} w="600" h="900" >
                 <form onSubmit={this.handleSubmit}>

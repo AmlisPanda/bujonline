@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { TextWidget } from './TextWidget.js';
 import { ImageWidget } from './ImageWidget.js';
 import { ListWidget } from './ListWidget.js';
+import { TimerWidget } from './TimerWidget.js';
 
 export class WidgetsList extends Component {
     render() {
@@ -30,6 +31,12 @@ export class WidgetsList extends Component {
                     description="Dans le mois"
                     isLoggedIn={this.props.isLoggedIn}
                     listType="2"
+                />
+                <TimerWidget
+                    title="Concert de Nightwish"
+                    description=""
+                    isLoggedIn={this.props.isLoggedIn}
+
                 />
             </div>
 
